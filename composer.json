@@ -1,16 +1,17 @@
 {
-    "name": "codigoconjuan/app-salon_php_mvc_js_sass",
-    "description": "Proyecto PHP 8, MVC, SQL, SASS, Active Record",
+    "name": "juans/app-salon",
+    "description": "Proyecto PHP 8, MVC, SQL, SASS, GULP, JavaScript",
     "type": "project",
     "autoload": {
         "psr-4": {
-            "MVC\\" : "./",
-            "Controllers\\" : "./controllers",
-            "Model\\" : "./models",
-            "Classes\\" : "./classes"
+            "Juans\\AppSalon\\": "src/"
         }
     },
-    "require": {
-        "phpmailer/phpmailer": "^6.5"
-    }
+    "authors": [
+        {
+            "name": "Juan Pablo",
+            "email": "juansaner01@gmail.com"
+        }
+    ],
+    "require": {}
 }
