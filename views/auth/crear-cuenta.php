@@ -4,22 +4,22 @@
 <form class="formulario" method="POST" action="/crear-cuenta">
     <div class="campo">
         <label for="nombre">Nombre</label>
-        <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre">
+        <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre" value="<?php echo sanitizar($usuario->nombre) ?>">
     </div>
 
     <div class="campo">
         <label for="apellido">Apellido</label>
-        <input type="text" id="apellido" name="apellido" placeholder="Ingresa tu apellido">
+        <input type="text" id="apellido" name="apellido" placeholder="Ingresa tu apellido" value="<?php echo sanitizar($usuario->apellido) ?>">
     </div>
 
     <div class="campo">
         <label for="telefono">Teléfono</label>
-        <input type="tel" id="telefono" name="telefono" placeholder="Ingresa tu teléfono">
+        <input type="tel" id="telefono" name="telefono" placeholder="Ingresa tu teléfono" value="<?php echo sanitizar($usuario->telefono) ?>">
     </div>
     
     <div class="campo">
         <label for="email">Correo</label>
-        <input type="email" id="email" name="email" placeholder="Ingresa tu correo electrónico">
+        <input type="email" id="email" name="email" placeholder="Ingresa tu correo electrónico" value="<?php echo sanitizar($usuario->email) ?>">
     </div>
 
     <div class="campo">
