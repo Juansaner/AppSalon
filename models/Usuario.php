@@ -4,8 +4,8 @@ namespace Model;
 
 class Usuario extends ActiveRecord {
     //Base de datos
-    public static $tabla = 'usuarios';
-    public static $columnasDB = ['id', 'nombre', 'apellido', 'email', 'password', 'telefono', 'admin', 'confirmado', 'token'];
+    protected static $tabla = 'usuarios';
+    protected static $columnasDB = ['id', 'nombre', 'apellido', 'email', 'password', 'telefono', 'admin', 'confirmado', 'token'];
 
     public $id;
     public $nombre;
@@ -27,5 +27,31 @@ class Usuario extends ActiveRecord {
         $this->admin = $args['admin'] ?? null;
         $this->confirmado = $args['confirmado'] ?? null;
         $this->token = $args['token'] ?? '';
+    }
+
+    //Mensajes de validación para la creación de la cuenta
+    public function validarNuevaCuenta() {
+
+        if(!$this->nombre) {
+            self::$alertas['error'] = 'El nombre es obligatorio';
+        }
+
+        if(!$this->apellido) {
+            self::$alertas['error'] = 'El apellido es obligatorio';
+        }
+
+        if(!$this->email) {
+            self::$alertas['error'] = 'El correo es obligatorio';
+        }
+
+        if(!$this->password) {
+            self::$alertas['error'] = 'La contraseña es obligatoria';
+        }
+
+        if(!$this->telefono) {
+            self::$alertas['error'] = 'El teléfono es obligatorio';
+        }
+
+        return self::$alertas;
     }
 }
