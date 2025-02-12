@@ -35,7 +35,15 @@ class LoginController {
 
             //Revisar que alerta esté vacío
             if(empty($alertas)) {
-                echo 'Pasaste la validación';
+                //Verificar que el usuario no esté registrado
+                $resultado = $usuario->existeUsuario();
+
+                if($resultado->num_rows) {
+                    $alertas = Usuario::getAlertas();
+                } else {
+                    //No está registrado
+                    debuguear('No está registrado');
+                }
             }
         }
         $router->render('auth/crear-cuenta', [
