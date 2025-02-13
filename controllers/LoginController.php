@@ -84,7 +84,7 @@ class LoginController {
             $usuario->token = null;
             $usuario->guardar();
             //Alerta token valido
-            Usuario::setAlerta('exito', 'Token válido, confirmando usuario...');
+            Usuario::setAlerta('exito', 'Token válido usuario confirmado');
         }
 
         //Lee alertas guardadas en memoria
