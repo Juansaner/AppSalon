@@ -7,7 +7,8 @@
             "Juans\\AppSalon\\": "src/",
             "MVC\\" : "./",
             "Controllers\\" : "./controllers",
-            "Model\\" : "./models"
+            "Model\\" : "./models",
+            "Classes\\" : "./classes"
         }
     },
     "authors": [
@@ -16,5 +17,7 @@
             "email": "juansaner01@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "phpmailer/phpmailer": "^6.9"
+    }
 }

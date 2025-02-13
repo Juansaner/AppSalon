@@ -4,6 +4,7 @@ namespace Controllers;
 
 use MVC\Router;
 use Model\Usuario;
+use Classes\Email;
 
 class LoginController {
     public static function login(Router $router) {
@@ -42,6 +43,8 @@ class LoginController {
                     $alertas = Usuario::getAlertas();
                 } else {
                     $usuario->hashPassword();
+
+                    $email = new Email($usuario->nombre, $usuario->email, $usuario->token);
                 }
             }
         }
