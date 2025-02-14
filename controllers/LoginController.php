@@ -76,13 +76,14 @@ class LoginController {
                     $usuario->guardar();
 
                     Usuario::setAlerta('exito', 'Revisa tu correo');
+                    $alertas = Usuario::getAlertas();
                 } else {
                     Usuario::setAlerta('error', 'El usuario no existe o no está confirmado');
-                    $alertas = Usuario::getAlertas();
                 }
             }
         }
-
+        
+        $alertas = Usuario::getAlertas();
 
         $router->render('auth/olvide-password', [
             'alertas' => $alertas
