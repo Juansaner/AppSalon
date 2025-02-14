@@ -1,6 +1,10 @@
 <h1 class="nombre-pagina">Olvidé password</h1>
 <p class="descripcion-pagina">Reestablece tu contraseña escribiendo su correo a continuación</p>
 
+<?php 
+    include_once __DIR__ . "/../templates/alertas.php";
+?>
+
 <form class="formulario" action="/olvide-password" method="POST">
 
     <div class="campo">
