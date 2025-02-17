@@ -9,7 +9,7 @@
 
     <div class="campo">
         <label for="email">Correo</label>
-        <input type="email" id="email" name="email" placeholder="Ingresa tu contraseña">
+        <input type="email" id="email" name="email" placeholder="Ingresa tu correo">
     </div>
 
     <input type="submit" value="Enviar instrucciones" class="boton">
