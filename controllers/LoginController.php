@@ -118,7 +118,9 @@ class LoginController {
 
                 $resultado = $usuario->guardar();
                 if($resultado) {
-                    header('Location: /');
+                    Usuario::setAlerta('exito', 'Contraseña actualizada correctamente');
+
+                    header('Refresh: 3; url=/');
                 }
             }
         }
