@@ -11,8 +11,13 @@
         margin: 0 0 1rem 0;
         font-size: 1.6rem;
         padding: 1rem 2rem;
-        
+
         @include m.tablet {
+            font-size: 1.7rem;
+            padding: 1.3rem 2.5rem;
+        }
+        
+        @include m.desktop {
             font-size: 2rem;
             padding: 1.5rem 4rem;
         }
