@@ -4,3 +4,12 @@
 .boton {
     @include m.boton(v.$azul, v.$blanco);
 }
+
+.boton-borde {
+    @include m.boton-borde(v.$azul, v.$azul);
+}
+
+.boton-centrado {
+    display: flex;
+    justify-content: center;
+}

@@ -46,6 +46,35 @@
     }
 }
 
+@mixin boton-borde($bgColor, $colorTexto) {
+    border: 0.3rem solid $bgColor; 
+    padding: 1.5rem 4rem; 
+    color: $colorTexto; 
+    font-size: 2rem; 
+    font-weight: 700; 
+    text-align: center; 
+    display: inline-block; 
+    width: 100%; 
+    border-radius: 1rem; 
+    background-color: transparent; 
+    transition: background-color 0.3s ease, color 0.3s ease; 
+    margin: 2rem 0;
+
+    @include tablet {
+        width: auto; 
+    }
+
+    &:hover {
+        background-color: $bgColor; 
+        color: lighten($colorTexto, 100%); 
+        cursor: pointer;
+    }
+
+    &:active {
+        background-color: darken($bgColor, 10%); // Oscurecer el fondo al hacer clic
+    }
+}
+
 @mixin grid($columnas, $espaciado ) {
     display: grid;
     gap: $espaciado;

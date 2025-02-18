@@ -40,7 +40,7 @@
     </div>
 
     <div class="paginacion">
-        <button id="anterior" class="boton">
+        <button id="anterior" class="boton-borde">
             &laquo; Anterior
         </button>
 
