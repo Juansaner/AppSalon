@@ -44,7 +44,7 @@
             &laquo; Anterior
         </button>
 
-        <button id="anterior" class="boton">
+        <button id="siguiente" class="boton">
             Siguiente &raquo; 
         </button>
     </div>
