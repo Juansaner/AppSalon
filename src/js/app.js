@@ -24,6 +24,7 @@ function iniciarApp() {
 
     nombreCliente();//Añade el nombre del cliente al objeto de cita
     seleccionarFecha();//Añade la fecha de la cita en el objeto
+    seleccionarHora();//Añade la hora de la cita en el objeto
 }
 
 function mostrarSeccion() {
@@ -175,6 +176,21 @@ function seleccionarFecha() {
     });
 }
 
+function seleccionarHora() {
+    const inputHora = document.querySelector('#hora');
+    inputHora.addEventListener('input', function(e) {
+
+        const horaCita = e.target.value;
+        const hora = horaCita.split(":")[0];
+        if(hora < 10 || hora > 18) {
+            e.target.value = '';
+            mostrarAlerta('error', 'Hora no permitida');
+        } else {
+            cita.hora = e.target.value;
+        }
+    })
+}
+
 function mostrarAlerta(tipo, mensaje) {
     //Comprueba si ya existe una alerta
     const alertaPrevia = document.querySelector('.alerta');
@@ -194,3 +210,4 @@ function mostrarAlerta(tipo, mensaje) {
         alerta.remove();
     }, 3000);
 }
+
