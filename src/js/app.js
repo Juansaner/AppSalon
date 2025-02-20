@@ -172,7 +172,7 @@ function seleccionarFecha() {
         //Comprobar si la fecha es sábado o domingo
         if([6, 0].includes(dia)) {
             e.target.value = '';
-            mostrarAlerta('error', 'Fines de semana no permitidos');
+            mostrarAlerta('error', 'Fines de semana no permitidos', '.formulario');
         } else {
             const fecha = e.target.value;
             cita.fecha = fecha;
@@ -188,38 +188,42 @@ function seleccionarHora() {
         const hora = horaCita.split(":")[0];
         if(hora < 10 || hora > 18) {
             e.target.value = '';
-            mostrarAlerta('error', 'Hora no permitida');
+            mostrarAlerta('error', 'Hora no permitida', '.formulario');
         } else {
             cita.hora = e.target.value;
         }
     })
 }
 
-function mostrarAlerta(tipo, mensaje) {
+function mostrarAlerta(tipo, mensaje, elemento, desaparece = true) {
     //Comprueba si ya existe una alerta
     const alertaPrevia = document.querySelector('.alerta');
-    if(alertaPrevia) return;
-
+    if(alertaPrevia) {
+        alertaPrevia.remove();
+    }
     //Scripting para eliminar la alerta
     const alerta = document.createElement('DIV');
     alerta.textContent = mensaje;
     alerta.classList.add('alerta');
     alerta.classList.add(tipo);
 
-    const formulario = document.querySelector('#paso-2 p');
-    formulario.appendChild(alerta);
+    const referencia = document.querySelector(elemento);
+    referencia.appendChild(alerta);
 
-    //Elimina alerta después de 3s
-    setTimeout(() => {
-        alerta.remove();
-    }, 3000);
+    if(desaparece) {
+        //Elimina alerta después de 3s
+        setTimeout(() => {
+            alerta.remove();
+        }, 3000);
+    }
+    
 }
 
 function mostrarResumen() {
     const resumen = document.querySelector('.contenido-resumen');
 
-    if(Object.values(cita).includes('')) {
-
+    if(Object.values(cita).includes('') || cita.servicios.length === 0) {
+        mostrarAlerta('error', 'Faltan datos de servicios, fecha u hora', '.contenido-resumen', false);
     } else  {
 
     }
