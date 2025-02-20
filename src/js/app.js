@@ -138,8 +138,18 @@ function mostrarServicios(servicios) {
 function seleccionarServicio(servicio) {
     const { id } = servicio;
     const { servicios } = cita; //Extrae arreglo de servicios
-    cita.servicios = [...servicios, servicio]; //Copia de arreglo de servicios y agrega el servicio
 
+    //identificar el elemento al que se la da click
     const divServicio = document.querySelector(`[data-id-servicio="${id}"]`);
-    divServicio.classList.add('seleccionado');
+
+    //Comprobar si un servicio ya fue agregado
+    if(servicios.some( agregado => agregado.id === id)) {
+        //Eliminarlo
+        cita.servicios = servicios.filter( agregado => agregado.id !== id);
+        divServicio.classList.remove('seleccionado');
+    } else {
+        //Agregarlo
+        cita.servicios = [...servicios, servicio]; //Copia de arreglo de servicios y agrega el servicio
+        divServicio.classList.add('seleccionado');
+    }
 }
