@@ -136,7 +136,10 @@ function mostrarServicios(servicios) {
 }
 
 function seleccionarServicio(servicio) {
+    const { id } = servicio;
     const { servicios } = cita; //Extrae arreglo de servicios
-
     cita.servicios = [...servicios, servicio]; //Copia de arreglo de servicios y agrega el servicio
+
+    const divServicio = document.querySelector(`[data-id-servicio="${id}"]`);
+    divServicio.classList.add('seleccionado');
 }
