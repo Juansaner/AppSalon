@@ -20,9 +20,10 @@ function iniciarApp() {
     paginaSiguiente();
     paginaAnterior();
 
-    consultarAPI(); //Consultar api 
+    consultarAPI(); //Consulta la API en el backend de PHP
 
-    nombreCliente();
+    nombreCliente();//Añade el nombre del cliente al objeto de cita
+    seleccionarFecha();//Añade la fecha de la cita en el objeto
 }
 
 function mostrarSeccion() {
@@ -73,7 +74,6 @@ function botonesPaginador() {
         paginaAnterior.classList.remove('ocultar');
         paginaSiguiente.classList.remove('ocultar');
     }
-
     mostrarSeccion();
 }
 
@@ -83,7 +83,6 @@ function paginaSiguiente() {
 
         if(paso >= pasoFinal) return;
         paso++;
-        
         botonesPaginador();
     })
 }
@@ -94,7 +93,6 @@ function paginaAnterior() {
 
         if(paso <= pasoInicial) return;
         paso--;
-        
         botonesPaginador();
     })
 }
@@ -133,7 +131,6 @@ function mostrarServicios(servicios) {
         servicioDiv.appendChild(precioServicio);
 
         document.querySelector('#servicios').appendChild(servicioDiv); //Lo añade a la vista
-
     })
 }
 
@@ -159,4 +156,20 @@ function seleccionarServicio(servicio) {
 function nombreCliente() {
     const nombre = document.querySelector('#nombre').value;
     cita.nombre = nombre;
+}
+
+function seleccionarFecha() {
+    const inputFecha = document.querySelector('#fecha');
+    inputFecha.addEventListener('input', function(e) {
+
+        const dia = new Date(e.target.value).getUTCDay(); //Instancia de la fecha 
+
+        //Comprobar si la fecha es sábado o domingo
+        if([6, 0].includes(dia)) {
+            e.target.value = '';
+        } else {
+            const fecha = e.target.value;
+            cita.fecha = fecha;
+        }
+    });
 }
