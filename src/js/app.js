@@ -167,9 +167,30 @@ function seleccionarFecha() {
         //Comprobar si la fecha es sábado o domingo
         if([6, 0].includes(dia)) {
             e.target.value = '';
+            mostrarAlerta('error', 'Fines de semana no permitidos');
         } else {
             const fecha = e.target.value;
             cita.fecha = fecha;
         }
     });
+}
+
+function mostrarAlerta(tipo, mensaje) {
+    //Comprueba si ya existe una alerta
+    const alertaPrevia = document.querySelector('.alerta');
+    if(alertaPrevia) return;
+
+    //Scripting para eliminar la alerta
+    const alerta = document.createElement('DIV');
+    alerta.textContent = mensaje;
+    alerta.classList.add('alerta');
+    alerta.classList.add(tipo);
+
+    const formulario = document.querySelector('#paso-2 p');
+    formulario.appendChild(alerta);
+
+    //Elimina alerta después de 3s
+    setTimeout(() => {
+        alerta.remove();
+    }, 3000);
 }
