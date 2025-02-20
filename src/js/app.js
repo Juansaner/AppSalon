@@ -21,6 +21,8 @@ function iniciarApp() {
     paginaAnterior();
 
     consultarAPI(); //Consultar api 
+
+    nombreCliente();
 }
 
 function mostrarSeccion() {
@@ -152,4 +154,9 @@ function seleccionarServicio(servicio) {
         cita.servicios = [...servicios, servicio]; //Copia de arreglo de servicios y agrega el servicio
         divServicio.classList.add('seleccionado');
     }
+}
+
+function nombreCliente() {
+    const nombre = document.querySelector('#nombre').value;
+    cita.nombre = nombre;
 }
