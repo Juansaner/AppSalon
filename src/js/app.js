@@ -288,7 +288,7 @@ function mostrarResumen() {
     const botonReservar = document.createElement('BUTTON');
     botonReservar.classList.add('boton');
     botonReservar.textContent = 'Reservar';
-    botonReservar.onclick = reservarCita;
+    botonReservar.onclick = reservarCita();
 
     resumen.appendChild(nombreCliente);
     resumen.appendChild(fechaCita);
@@ -297,6 +297,20 @@ function mostrarResumen() {
     resumen.appendChild(botonReservar);
 }
 
-function reservarCita() {
-    console.log('Reservando')
+//Evía datos a la API
+async function reservarCita() {
+     const datos = new FormData();
+     datos.append('nombre', 'Juan');
+
+     //Petición hacia la api
+     const url = 'http://localhost:3000/api/citas';
+
+     const respuesta = await fetch(url, {
+        method: 'POST'
+     });
+     
+     const resultado = await respuesta.json();
+     console.log(resultado);
+
+     //console.log([...datos]);
 }
