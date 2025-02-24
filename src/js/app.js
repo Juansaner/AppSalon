@@ -288,7 +288,7 @@ function mostrarResumen() {
     const botonReservar = document.createElement('BUTTON');
     botonReservar.classList.add('boton');
     botonReservar.textContent = 'Reservar';
-    botonReservar.onclick = reservarCita();
+    botonReservar.onclick = reservarCita;
 
     resumen.appendChild(nombreCliente);
     resumen.appendChild(fechaCita);
@@ -299,8 +299,16 @@ function mostrarResumen() {
 
 //Evía datos a la API
 async function reservarCita() {
+    const { nombre, fecha, hora, servicios } = cita;
+
+    const idServicios = servicios.map( servicio => servicio.id);
+
      const datos = new FormData();
-     datos.append('nombre', 'Juan');
+     datos.append('nombre', nombre);
+     datos.append('fecha', fecha);
+     datos.append('hora', hora);
+     datos.append('servicios', idServicios);
+     
 
      //Petición hacia la api
      const url = 'http://localhost:3000/api/citas';
