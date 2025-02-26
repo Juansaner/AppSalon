@@ -1,4 +1,4 @@
-<h1 class="nombre-pagina">EN EL LOGIN</h1>
+<h1 class="nombre-pagina">Login</h1>
 <p class="descripcion-pagina">Inicia sesión con tus datos</p>
 
 <?php 
@@ -12,7 +12,7 @@
     </div>
     <div class="campo">
         <label for="email">Contraseña</label>
-        <input id="password" type="password" placeholder="Ingresa tu contraseñao" name="password">
+        <input id="password" type="password" placeholder="Ingresa tu contraseña" name="password">
     </div>
 
     <input type="submit" class="boton" value="Iniciar sesión">
