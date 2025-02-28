@@ -21,8 +21,8 @@
         ?>
         <li>
             <p>ID: <span><?php echo $cita->id; ?></span></p>
-            <p>Hora: <span><?php echo $cita->id; ?></span></p>
-            <p>Cliente: <span><?php echo $cita->id; ?></span></p>
+            <p>Hora: <span><?php echo $cita->hora; ?></span></p>
+            <p>Cliente: <span><?php echo $cita->cliente; ?></span></p>
             <p>Email: <span><?php echo $cita->email; ?></span></p>
             <p>Telefono: <span><?php echo $cita->telefono; ?></span></p>
 
@@ -32,7 +32,6 @@
             } //Fin del if
         ?>
             <p class="servicio"><?php echo $cita->servicio . " " . $cita->precio; ?></p>
-        </li>
         <?php } //Fin del foreach ?>
     </ul>
 </div>
