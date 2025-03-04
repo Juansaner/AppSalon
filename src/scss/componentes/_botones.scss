@@ -13,3 +13,7 @@
     display: flex;
     justify-content: center;
 }
+
+.boton-eliminar {
+    @include m.boton(v.$rojo, v.$blanco);
+}
