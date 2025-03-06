@@ -19,3 +19,5 @@
     <a href="/">¿Ya tienes una cuenta? Inicia sesión</a>
     <a href="/crear-cuenta">¿Aún no tienes cuenta? Crear una</a>
 </div>
+
+<?php $script = "<script src='build/js/centrar.js'></script>" ?>

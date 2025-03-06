@@ -1,8 +1,9 @@
 @use 'base/variables' as v;
 @use 'base/mixins' as m;
+@use 'sass:color';
 
 .acciones {
-    margin-top: v.$separacion;
+    margin-top: 3.4rem;
 
     @include m.tablet {
         display: flex;
@@ -14,5 +15,24 @@
         display: block;
         margin-bottom: calc(v.$separacion / 2);
         text-align: center;
+    }
+}
+
+.acciones-formulario {
+    margin-top: 3.4rem;
+    
+    a {
+        color: v.$gris;
+        display: block;
+        margin-bottom: calc(v.$separacion / 2);
+        text-align: center;
+
+        span {
+            font-weight: v.$bold;
+        }
+
+        &:active {
+            color: color.adjust(v.$gris, $lightness: -20%);
+        }
     }
 }

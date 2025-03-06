@@ -14,12 +14,15 @@
         <label for="email">Contraseña</label>
         <input id="password" type="password" placeholder="Ingresa tu contraseña" name="password">
     </div>
-
-    <input type="submit" class="boton" value="Iniciar sesión">
+    <div class="boton-centrado">
+        <input type="submit" class="boton" value="Iniciar sesión">
+    </div>
     
 </form>
 
-<div class="acciones">
-    <a href="/crear-cuenta">¿Aún no tienes una cuenta? Crear una</a>
+<div class="acciones-formulario">
+    <a href="/crear-cuenta">¿Aún no tienes una cuenta? <span>Crear una</span></a>
     <a href="/olvide">¿Olvidaste tu contraseña?</a>
 </div>
+
+<?php $script = "<script src='build/js/centrar.js'></script>" ?>
