@@ -31,10 +31,13 @@
         <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña">
     </div>
 
-    <input type="submit" value="Crear cuenta" class="boton">
+    <div class="boton-centrado">
+        <input type="submit" value="Crear cuenta" class="boton">
+    </div>
+    
 </form>
 
-<div class="acciones">
-    <a href="/">¿Ya tienes una cuenta? Inicia sesión</a>
+<div class="acciones-formulario">
+    <a href="/">¿Ya tienes una cuenta? <span>Inicia sesión</span></a>
     <a href="/olvide">¿Olvidaste tu contraseña?</a>
 </div>
