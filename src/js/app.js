@@ -133,12 +133,21 @@ function mostrarServicios(servicios) {
         servicioDiv.onclick = function() {
             seleccionarServicio(servicio);
         }
+        
+        const infoServicioDiv = document.createElement('DIV');
+        infoServicioDiv.classList.add('servicio-info');
 
-        servicioDiv.appendChild(nombreServicio);
-        servicioDiv.appendChild(precioServicio);
+        const iconoDiv = document.createElement('DIV');
+        iconoDiv.classList.add('servicio-icono');
+        iconoDiv.innerHTML = '<i class="bi bi-plus"></i>';
+
+        infoServicioDiv.appendChild(nombreServicio);
+        infoServicioDiv.appendChild(precioServicio);
+        servicioDiv.appendChild(infoServicioDiv);
+        servicioDiv.appendChild(iconoDiv);
 
         document.querySelector('#servicios').appendChild(servicioDiv); //Lo añade a la vista
-    })
+    });
 }
 
 function seleccionarServicio(servicio) {
@@ -147,16 +156,18 @@ function seleccionarServicio(servicio) {
 
     //identificar el elemento al que se la da click
     const divServicio = document.querySelector(`[data-id-servicio="${id}"]`);
-
+    const iconoDiv = divServicio.querySelector('.servicio-icono');
     //Comprobar si un servicio ya fue agregado
     if(servicios.some( agregado => agregado.id === id)) {
         //Eliminarlo
         cita.servicios = servicios.filter( agregado => agregado.id !== id);
         divServicio.classList.remove('seleccionado');
+        iconoDiv.classList.remove('oculto');
     } else {
         //Agregarlo
         cita.servicios = [...servicios, servicio]; //Copia de arreglo de servicios y agrega el servicio
         divServicio.classList.add('seleccionado');
+        iconoDiv.classList.add('oculto');
     }
 }
 
