@@ -3,28 +3,32 @@
 @use 'sass:color';
 
 .tabs {
-    @include m.tablet {
-        display: flex;
-    }
+    display: flex;
+    border-radius: 1rem;
+    background-color: v.$darkLight;
+    padding: 0.4rem;
 
     button {
-        background-color: v.$azul;
+        background-color: transparent;
         border: none;
-        color: v.$blanco;
+        color: v.$gris;
         padding: 1rem;
         display: block;
         width: 100%;
-        margin-bottom: 1rem;
-        font-weight: v.$bold;
-        transition: background-color 300ms ease-in;
+        border-radius: 1rem;
+        font-weight: v.$regular;
+        transition: 300ms ease-in;
 
         &:hover {
             cursor: pointer;
-            background-color: color.adjust(v.$azul, $lightness: -10%);
+            background: linear-gradient(180deg, v.$topBlue 0%, v.$bottomBlue 100%);
+            color: v.$blanco;
+            font-weight: v.$bold;
         }
         &.actual {
-            background-color: color.adjust(v.$azul, $lightness: -10%);
+            background: linear-gradient(180deg, v.$topBlue 0%, v.$bottomBlue 100%);
             color: v.$blanco;
+            font-weight: v.$bold;
         }
     }
 }

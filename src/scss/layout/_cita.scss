@@ -12,6 +12,10 @@ h2 {
 
 p {
     font-size: 1.5rem;
+    color: v.$gris;
+    span {
+        font-weight: v.$bold;
+    }
 }
 
 @include m.tablet {
@@ -21,20 +25,23 @@ p {
 
     h2 {
         font-size: 3.6rem;
+        margin: 0;
+        color: v.$gris;
     }
 
     p {
-        font-size: 2rem;
+        font-size: 1.7rem;
     }
 }
 
 
 .seccion {
-    padding: 5rem 0;
+    padding: 2.4rem 0;
     display: none;
 
     .text-center {
         text-align: center;
+        margin-top: 0.8rem;
     }
 }
 

@@ -8,15 +8,16 @@
         @include m.grid(2, 2rem);
     }
     .servicio {
-        background-color: v.$blanco;
-        padding: 1.5rem;
+        background-color: v.$darkLight;
+        padding: 1.6rem;
         border-radius: 1rem;
+        box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.1);
         transition-property: transform;
         transition-duration: 300ms;
-        text-align: center;
+        text-align: left;
 
         &.seleccionado {
-            background-color: v.$azul;
+            background: linear-gradient(180deg, v.$topBlue 0%, v.$bottomBlue 100%);
             p {
                 color: v.$blanco;
             }
@@ -27,13 +28,14 @@
         }
 
         p{
-            color: v.$negro;
+            color: v.$gris;
+            font-weight: v.$bold;
             margin: 0 0 calc(v.$separacion / 4) 0;
         }
 
         .precio-servicio {
-            color: v.$azul;
-            font-weight: v.$bold;
+            color: v.$gris;
+            font-weight: v.$regular;
             margin: 0;
         }
     }
