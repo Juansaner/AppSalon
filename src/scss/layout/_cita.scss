@@ -2,6 +2,10 @@
 @use 'base/mixins' as m;
 
 
+h2 {
+    margin: 0;
+}
+
 p {
     color: v.$gris;
     span {
