@@ -6,7 +6,7 @@
 }
 
 .boton-borde {
-    @include m.boton-borde(v.$azul, v.$azul);
+    @include m.boton-borde(v.$topBlue, v.$bottomBlue, v.$blanco);
 }
 
 .boton-centrado {
