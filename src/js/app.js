@@ -75,7 +75,6 @@ function botonesPaginador() {
     } else if(paso === 3) {
         paginaAnterior.classList.remove('ocultar');
         paginaSiguiente.classList.add('ocultar');
-
         mostrarResumen();
     } else {
         paginaAnterior.classList.remove('ocultar');
@@ -253,36 +252,21 @@ function mostrarResumen() {
     //Formatear el div de resumen
     const { nombre, fecha, hora, servicios } = cita;
 
-    //heading para Servicios en Resumen
-    const headingServicios = document.createElement('H3');
-    headingServicios.textContent = 'Resumen de servicios';
-    resumen.appendChild(headingServicios);
-
-    //Iterando y mostrando los servicios
-    servicios.forEach(servicio => {
-        const { id, precio, nombre } = servicio;
-        const contenedorServicio = document.createElement('DIV');
-        contenedorServicio.classList.add('contenedor-servicio');
-
-        const textoServicio = document.createElement('P');
-        textoServicio.textContent = nombre;
-
-        const precioServicio = document.createElement('P');
-        precioServicio.innerHTML = `<span>Precio:</span> $${precio}`;
-
-        contenedorServicio.appendChild(textoServicio);
-        contenedorServicio.appendChild(precioServicio);
-
-        resumen.appendChild(contenedorServicio);
-    });
-
     //heading para cita en Resumen
-    const headingCita = document.createElement('H3');
+    const headingCita = document.createElement('H2');
     headingCita.textContent = 'Resumen de cita';
     resumen.appendChild(headingCita);
 
+    const contenedorResumenCita = document.createElement('DIV');
+    contenedorResumenCita.classList.add('contenedor-resumen-cita');
+    resumen.appendChild(contenedorResumenCita);
+
+    const contenedorCita = document.createElement('DIV');
+    contenedorCita.classList.add('contenedor-cita');
+    contenedorResumenCita.appendChild(contenedorCita);
+
     const nombreCliente = document.createElement('P');
-    nombreCliente.innerHTML = `<span>Nombre:</span> ${nombre}`;
+    nombreCliente.innerHTML = `<i class="bi bi-person"></i> <span>${nombre}</span>`;
 
     //Formatear la fecha en español
     const fechaObj = new Date(fecha);
@@ -297,22 +281,75 @@ function mostrarResumen() {
     const fechaFormateada = fechaUTC.toLocaleDateString('es-CO', opciones);
 
     const fechaCita = document.createElement('P');
-    fechaCita.innerHTML = `<span>Fecha:</span> ${fechaFormateada}`;
+    fechaCita.innerHTML = `<i class="bi bi-calendar-event"></i> <span>${fechaFormateada}</span>`;
 
     const horaCita = document.createElement('P');
-    horaCita.innerHTML = `<span>Hora:</span> ${hora}`;
+    horaCita.innerHTML = `<i class="bi bi-stopwatch"></i> <span>${hora}</span>`;
+
+    contenedorCita.appendChild(nombreCliente);
+    contenedorCita.appendChild(fechaCita);
+    contenedorCita.appendChild(horaCita);
+
+    //heading para Servicios en Resumen
+    const headingServicios = document.createElement('H3');
+    headingServicios.textContent = 'Resumen de servicios';
+    contenedorResumenCita.appendChild(headingServicios);
+
+    //Iterando y mostrando los servicios
+    servicios.forEach(servicio => {
+        const { id, precio, nombre } = servicio;
+        const contenedorServicio = document.createElement('DIV');
+        contenedorServicio.classList.add('contenedor-servicio');
+
+        const textoServicio = document.createElement('P');
+        textoServicio.textContent = nombre;
+
+        const precioServicio = document.createElement('P');
+        precioServicio.textContent = `$${precio}`;
+
+        contenedorServicio.appendChild(textoServicio);
+        contenedorServicio.appendChild(precioServicio);
+
+        contenedorResumenCita.appendChild(contenedorServicio);
+    });
+
+    precioTotalServicio();
 
     //Boton para crear una cita
     const botonReservar = document.createElement('BUTTON');
     botonReservar.classList.add('boton');
-    botonReservar.textContent = 'Reservar';
+    botonReservar.textContent = 'Reservar cita';
     botonReservar.onclick = reservarCita;
+    contenedorResumenCita.appendChild(botonReservar);
+}
 
-    resumen.appendChild(nombreCliente);
-    resumen.appendChild(fechaCita);
-    resumen.appendChild(horaCita);
+function precioTotalServicio() {
+    const contenedorCita = document.querySelector('.contenedor-resumen-cita');
+    let total = 0;
+    const { servicios } = cita;
 
-    resumen.appendChild(botonReservar);
+    servicios.forEach( servicio => {
+        const { precio } = servicio;
+        total += parseFloat(precio);
+    })
+
+    const contenedorPrecioTotal = document.createElement('DIV');
+    contenedorPrecioTotal.classList.add('contenedor-precio-total');
+
+    const textoTotal = document.createElement('P');
+    textoTotal.textContent = 'Total';
+
+    const precioTotal = document.createElement('P');
+    precioTotal.textContent = `COP $${total.toLocaleString('es-CO')}`;
+
+    const totalPrevio = document.querySelector('.contenedor-precio-total');
+    if(totalPrevio) {
+        totalPrevio.remove();
+    }
+
+    contenedorPrecioTotal.appendChild(textoTotal);
+    contenedorPrecioTotal.appendChild(precioTotal);
+    contenedorCita.appendChild(contenedorPrecioTotal);
 }
 
 //Evía datos a la API
