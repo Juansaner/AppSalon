@@ -44,6 +44,11 @@
     }
 }
 
+input[type="date"],
+input[type="time"] {
+    color-scheme: dark;
+}
+
 .boton-centrado {
     .boton {
         width: 100%;
