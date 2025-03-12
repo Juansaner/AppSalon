@@ -3,12 +3,16 @@
 
 <?php 
     include_once __DIR__ . '/../templates/barra.php';
+    
 ?>
 <ul class="servicios">
-    <?php foreach($servicios as $servicio) { ?>
+    <?php 
+        foreach($servicios as $servicio) { 
+        $precioFormateado = number_format($servicio->precio, 0, ',', '.'); 
+    ?>
         <li>
             <p>Nombre: <span><?php echo $servicio->nombre; ?></span></p>
-            <p>Precio: <span>$<?php echo $servicio->precio; ?></span></p>
+            <p>Precio: <span>$<?php echo $precioFormateado; ?></span></p>
         </li>
 
         <div class="acciones">
