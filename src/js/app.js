@@ -124,7 +124,7 @@ function mostrarServicios(servicios) {
 
         const precioServicio = document.createElement('P');
         precioServicio.classList.add('precio-servicio');
-        precioServicio.textContent = `$${precio}`;
+        precioServicio.textContent = `$${parseFloat(precio).toLocaleString('es-CO')}`;
 
         const servicioDiv = document.createElement('DIV');
         servicioDiv.classList.add('servicio');
@@ -305,7 +305,7 @@ function mostrarResumen() {
         textoServicio.textContent = nombre;
 
         const precioServicio = document.createElement('P');
-        precioServicio.textContent = `$${precio}`;
+        precioServicio.textContent = `$${parseFloat(precio).toLocaleString('es-CO')}`;
 
         contenedorServicio.appendChild(textoServicio);
         contenedorServicio.appendChild(precioServicio);
