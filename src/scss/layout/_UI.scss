@@ -42,7 +42,8 @@
 }
 
 .barra {
-    margin: 3.2rem 0 4rem 0;
+    margin: 3.2rem auto 4rem auto;
+    max-width: 50rem;
     @include m.tablet {
         display: flex;
         justify-content: space-between;
