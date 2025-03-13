@@ -81,6 +81,7 @@
 
     &:hover {
         color: color.adjust($colorTexto, $lightness: 100%); 
+        background-color: color.adjust($topColor, $lightness: -10%);
         cursor: pointer;
     }
 

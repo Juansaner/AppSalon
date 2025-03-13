@@ -20,7 +20,7 @@
                 <input type="hidden" name="id" value="<?php echo $servicio->id; ?>">
                 <input type="submit" value='Eliminar' class="boton-eliminar">
             </form>
-            <a href="/servicios/actualizar?id=<?php echo $servicio->id; ?>" class="boton"><i class="bi bi-pencil"></i>Actualizar</a>
+            <a href="/servicios/actualizar?id=<?php echo $servicio->id; ?>" class="boton"><i class="bi bi-pencil"> </i>Actualizar</a>
         </div>
     </div>
     <?php } ?>
