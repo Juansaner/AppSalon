@@ -6,6 +6,8 @@
     display: flex;
     justify-content: space-between;
     gap: 1rem;
+    max-width: 50rem;
+    margin: 0 auto;
     
     button {
         margin: 0 0 1rem 0;
