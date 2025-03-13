@@ -8,21 +8,20 @@
 <ul class="servicios">
     <?php 
         foreach($servicios as $servicio) { 
-        $precioFormateado = number_format($servicio->precio, 0, ',', '.'); 
     ?>
-        <li>
-            <p>Nombre: <span><?php echo $servicio->nombre; ?></span></p>
-            <p>Precio: <span>$<?php echo $precioFormateado; ?></span></p>
+    <div class="contenido-servicio">
+        <li class="info-servicio">
+            <p><span>Nombre: </span> <?php echo $servicio->nombre; ?></p>
+            <p><span>Precio: </span>$<?php echo number_format($servicio->precio, 0, ',', '.'); ?></span></p>
         </li>
 
         <div class="acciones">
-            <a href="/servicios/actualizar?id=<?php echo $servicio->id; ?>" class="boton">Actualizar</a>
-            
             <form action="/servicios/eliminar" method="POST">
                 <input type="hidden" name="id" value="<?php echo $servicio->id; ?>">
-
-                <input type="submit" value="Eliminar" class="boton-eliminar">
+                <input type="submit" value='Eliminar' class="boton-eliminar">
             </form>
+            <a href="/servicios/actualizar?id=<?php echo $servicio->id; ?>" class="boton"><i class="bi bi-pencil"></i>Actualizar</a>
         </div>
+    </div>
     <?php } ?>
 </ul>

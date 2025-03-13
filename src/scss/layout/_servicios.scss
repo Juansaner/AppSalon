@@ -19,7 +19,6 @@
         cursor: pointer;
         overflow: hidden;
     
-        // Degradado como pseudo-elemento
         &::before {
             content: "";
             position: absolute;
