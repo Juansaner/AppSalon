@@ -18,7 +18,7 @@
     }
 ?>
 
-<div id="citas-admin">
+<div id="citas-admin" class="citas-admin">
     <ul class="citas">
         <?php 
         $idCita = 0;
@@ -26,30 +26,39 @@
                 if($idCita !== $cita->id) {
                     $total = 0;
         ?>
-        <li>
-            <p>ID: <span><?php echo $cita->id; ?></span></p>
-            <p>Hora: <span><?php echo $cita->hora; ?></span></p>
-            <p>Cliente: <span><?php echo $cita->cliente; ?></span></p>
-            <p>Email: <span><?php echo $cita->email; ?></span></p>
-            <p>Telefono: <span><?php echo $cita->telefono; ?></span></p>
-
+        <li  class="cita-info">
+            <div class="informacion">
+                <p><i class="bi bi-stopwatch"></i><span><?php echo $cita->hora; ?></span></p>
+                <p><i class="bi bi-person"></i><span><?php echo $cita->cliente; ?></span></p>
+                <p><i class="bi bi-envelope"></i><span><?php echo $cita->email; ?></span></p>
+                <p><i class="bi bi-telephone"></i><span><?php echo $cita->telefono; ?></span></p>
+            </div>
+            <div class="identificador">
+                <p>N.º<span><?php echo $cita->id; ?></span></p>
+            </div>
+        </li>
             <h3>Servicios</h3>
         <?php
             $idCita = $cita->id;
             } //Fin del if
             $total += $cita->precio;
         ?>
-            <p class="servicio"><?php echo $cita->servicio . " " . $cita->precio; ?></p>
+        <li class="cita-servicio">
+            <p><?php echo $cita->servicio;?></p>
+            <p> $<?php echo $cita->precio; ?></p>
+        </li>
         <?php
             $actual = $cita->id;
             $proximo = $citas[$key + 1]->id ?? 0;
 
             if(esUltimo($actual, $proximo)) { ?>
-                <p class="total">Total: <span><?php echo $total; ?></span></p>
-
+                <div class="precio-total">
+                    <p>Total</p>
+                    <p>$<?php echo $total; ?></p>
+                </div>
                 <form action="/api/eliminar" method="POST">
                     <input type="hidden" name="id" value="<?php echo $cita->id; ?>">
-                    <input type="submit" class="boton-eliminar" value="Eliminar">
+                    <input type="submit" class="boton boton-eliminar" value="Eliminar">
                 </form>
             <?php } ?>
         <?php } //Fin del foreach ?>
