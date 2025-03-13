@@ -60,14 +60,15 @@
 }
 
 .barra-servicios {
-    margin-bottom: v.$separacion;
+    max-width: 50rem;
+    margin: 0 auto;
 
     @include m.tablet {
         display: flex;
-        justify-content: space-between;
+        gap: 1.6rem;
     }
 
     .boton {
-        margin: 0 0 1rem 0;
+        margin: 0 0 2.4rem 0;
     }
 }

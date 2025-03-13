@@ -1,4 +1,5 @@
 @use 'base/variables' as v;
+@use 'base/mixins' as m;
 
 .citas-admin {
     display: flex;
@@ -81,17 +82,14 @@
 .servicios {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
+    margin: 0 auto;
+    padding: 0;
+    max-width: 50rem;
 
     .contenido-servicio {
         list-style: none;
         position: relative;
-        width: 50rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+        width: 100%;
         background-color: v.$darkLight;
         padding: 1.6rem;
         margin: 0 0 2.4rem 0;
@@ -102,12 +100,28 @@
     }
 
     .acciones {
+        display: flex;
+        flex-direction: column-reverse;
         margin: 0;
-        justify-content: end;
-        gap: 1.6rem;
+
+        .boton {
+            margin: 1.6rem 0 1.6rem 0;
+        }
+
+        .boton-eliminar {
+            margin: 0;
+        }
+        
+        @include m.tablet {
+            flex-direction: row;
+            justify-content: end;
+            gap: 1.6rem;
+
+            .boton,
+            .boton-eliminar {
+                margin: 0;
+            }
+        }
     }
-    .boton,
-    .boton-eliminar {
-        margin: 0;
-    }
+    
 }
