@@ -4,7 +4,10 @@
 .listado-servicios {
     display: grid;
     gap: 2rem;
-    @include m.tablet {
+    max-width: 50rem;
+    margin: 0 auto;
+
+    @include m.desktop {
         @include m.grid(2, 2rem);
     }
     .servicio {
