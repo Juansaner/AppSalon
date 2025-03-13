@@ -21,7 +21,7 @@
 
 @mixin boton($topColor, $bottomColor, $colorTexto) {
     display: inline-block;
-    padding: 1.5rem 4rem;
+    padding: 1rem 2rem; 
     color: $colorTexto;
     font-size: 1.6rem;
     font-weight: 700;
@@ -52,9 +52,9 @@
 @mixin boton-borde($topColor, $bottomColor, $colorTexto) {
     position: relative;
     border: 0.3rem solid $topColor; 
-    padding: 1.5rem 4rem; 
+    padding: 1rem 2rem; 
     color: $colorTexto; 
-    font-size: 2rem; 
+    font-size: 1.6rem; 
     font-weight: 700; 
     text-align: center; 
     display: inline-block; 
