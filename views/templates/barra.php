@@ -11,9 +11,9 @@
 
 <?php if(isset($_SESSION['admin'])) { ?>
     <div class="barra-servicios">
-        <a class="boton" href="/admin">Ver citas</a>
-        <a class="boton" href="/servicios">Ver servicios</a>
-        <a class="boton" href="/servicios/crear">Nuevo servicio</a>
+        <a class="boton" href="/admin">Cita</a>
+        <a class="boton" href="/servicios">Servicio</a>
+        <a class="boton" href="/servicios/crear">Nuevo</a>
     </div>
 
 <?php } ?>
