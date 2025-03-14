@@ -8,5 +8,7 @@
 
 <form method="POST" class="formulario">
     <?php include_once __DIR__ . '/formulario.php'; ?>
-    <input type="submit" class="boton" value="Actualizar">
+    <div class="boton-centrado">
+        <input type="submit" class="boton" value="Actualizar">
+    </div>
 </form>

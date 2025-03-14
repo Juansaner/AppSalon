@@ -189,7 +189,7 @@ function seleccionarFecha() {
         //Comprobar si la fecha es sábado o domingo
         if([6, 0].includes(dia)) {
             e.target.value = '';
-            mostrarAlerta('error', 'Fines de semana no permitidos', '.formulario');
+            mostrarAlerta('error', 'Fines de semana no permitidos', '#paso-2 p');
         } else {
             const fecha = e.target.value;
             cita.fecha = fecha;
@@ -205,7 +205,7 @@ function seleccionarHora() {
         const hora = horaCita.split(":")[0];
         if(hora < 10 || hora > 18) {
             e.target.value = '';
-            mostrarAlerta('error', 'Hora no permitida', '.formulario');
+            mostrarAlerta('error', 'Hora no permitida', '#paso-2 p');
         } else {
             cita.hora = e.target.value;
         }
