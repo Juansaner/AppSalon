@@ -11,8 +11,8 @@
     ?>
     <div class="contenido-servicio">
         <li class="info-servicio">
-            <p><span>Nombre: </span> <?php echo $servicio->nombre; ?></p>
-            <p><span>Precio: </span>$<?php echo number_format($servicio->precio, 0, ',', '.'); ?></span></p>
+            <p><span><?php echo $servicio->nombre; ?></span></p>
+            <p>$<?php echo number_format($servicio->precio, 0, ',', '.'); ?></span></p>
         </li>
 
         <div class="acciones">
