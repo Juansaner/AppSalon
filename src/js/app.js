@@ -396,8 +396,4 @@ async function reservarCita() {
             button: "OK"
         })
     }
-
-    
-
-     //console.log([...datos]);
 }
