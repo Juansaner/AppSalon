@@ -8,8 +8,7 @@ function iniciarApp() {
 
 function agregarClase() {
     const claseCentrar = document.querySelector('.app');
-
-    const paginasCentradas = ['/', '/olvide']; 
+    const paginasCentradas = ['/', '/olvide', '/crear-cuenta', '/mensaje', '/confirmar-cuenta']; 
     if(paginasCentradas.includes(location.pathname)){
         claseCentrar.classList.add('centrar');
     } else {

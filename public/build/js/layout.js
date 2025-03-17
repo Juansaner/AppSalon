@@ -1,1 +1,0 @@
-function iniciarApp(){agregarClase()}function agregarClase(){const e=document.querySelector(".app");["/","/olvide"].includes(location.pathname)?e.classList.add("centrar"):e.classList.remove("centrar")}document.addEventListener("DOMContentLoaded",(function(){iniciarApp()}));

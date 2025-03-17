@@ -5,3 +5,5 @@
 <div class="boton-centrado">
     <a href="/crear-cuenta" class="boton">Iniciar sesión</a>
 </div>
+
+<?php $script = "<script src='build/js/centrar.js'></script>" ?>

@@ -41,3 +41,5 @@
     <a href="/">¿Ya tienes una cuenta? <span>Inicia sesión</span></a>
     <a href="/olvide">¿Olvidaste tu contraseña?</a>
 </div>
+
+<?php $script = "<script src='build/js/centrar.js'></script>" ?>
