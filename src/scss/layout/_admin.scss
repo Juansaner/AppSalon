@@ -4,12 +4,12 @@
 .citas-admin {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    margin: 0 auto;
+    max-width: 50rem;
 }
 
 .citas {
-    max-width: 50rem;
+    width: 100%;
     list-style: none;
     position: relative;
     display: flex;
